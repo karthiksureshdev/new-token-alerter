@@ -25,14 +25,13 @@ class MessageSender:
         return members
 
     def send_to_all_members(self, message: str):
-        print(f"Message to send: \n{message}")
         print(f"Message sent to: ")
         member: str
         for member in self.get_members():
             print(f"{member}")
             self.bot.send_message(member, message)
 
-    def send_update(self, tags: ResultSet) -> None:
+    def send_update(self, tags: ResultSet):
         message: str = self._tags_to_message(tags)
         print(f"Message to send: \n{message}")
         if not message:
@@ -40,6 +39,9 @@ class MessageSender:
         self.send_to_all_members(message)
 
     def clear_old_tokens(self):
+        if not self.token_ages:
+            return
+
         while (time.time() - self.token_ages[0][0]) > 3600:
             token: tuple[int, str] = heapq.heappop(self.token_ages)
             self.tokens_seen.remove(token[1])

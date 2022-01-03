@@ -39,7 +39,7 @@ while True:
             .until(EC.element_to_be_clickable((By.ID, 'menu-list-6-menuitem-15')))
         myElem.click()
         myElem: WebElement = WebDriverWait(browser, timeout) \
-            .until(EC.presence_of_element_located((By.CLASS_NAME, 'css-427d58')))
+            .until(EC.presence_of_element_located((By.CLASS_NAME, 'css-4es7dx')))
 
         soup: BeautifulSoup = BeautifulSoup(browser.page_source, 'html.parser')
         tags: ResultSet = soup.find_all(class_=re.compile("css-427d58"))
