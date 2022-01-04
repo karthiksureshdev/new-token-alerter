@@ -12,6 +12,7 @@ from constants import DEX_SCREENER_URL, NEW_PAIRS
 
 chrome_options = Options()
 chrome_options.add_argument("--headless")
+chrome_options.add_argument('--no-sandbox')
 browser = webdriver.Chrome(options=chrome_options)
 timeout = 60  # seconds
 messageSender: MessageSender = MessageSender()
