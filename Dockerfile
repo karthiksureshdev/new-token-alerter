@@ -21,4 +21,4 @@ COPY . .
 
 USER 1200
 
-CMD [ "python3", "-m" , "scraper.py"]
+CMD [ "python3", "-m" , "main.py"]
